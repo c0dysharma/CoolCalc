@@ -6,8 +6,13 @@ import 'calc_field.dart';
 class CalcUI extends StatefulWidget {
   final double extraHeight;
   final MediaQueryData mediaQuery;
+  final Function themeToggle;
 
-  CalcUI({required this.extraHeight, required this.mediaQuery});
+  CalcUI({
+    required this.extraHeight,
+    required this.mediaQuery,
+    required this.themeToggle,
+  });
 
   @override
   State<CalcUI> createState() => _CalcUIState();
@@ -107,6 +112,14 @@ class _CalcUIState extends State<CalcUI> {
     final uiHeight = (widget.mediaQuery.size.height - widget.extraHeight);
     return Column(
       children: [
+        SizedBox(height: uiHeight * 0.05),
+        Container(
+          height: uiHeight * 0.05,
+          child: ElevatedButton(
+            onPressed: widget.themeToggle(),
+            child: const Icon(Icons.bolt),
+          ),
+        ),
         SizedBox(
           height: uiHeight * 0.3,
           width: widget.mediaQuery.size.width,
@@ -116,7 +129,7 @@ class _CalcUIState extends State<CalcUI> {
           ),
         ),
         SizedBox(
-          height: uiHeight * 0.7,
+          height: uiHeight * 0.6,
           child: CalcButtons(
             buttonPress: _buttonPress,
           ),

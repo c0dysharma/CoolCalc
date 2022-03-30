@@ -1,40 +1,49 @@
+import 'package:coolcalc/themes.dart';
 import 'package:coolcalc/widgets/calc_ui.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
+  final bool _darkTheme = true;
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'CoolCalc',
       home: MyHomePage(),
-      theme: ThemeData(
-        primaryColor: Colors.white,
-        focusColor: const Color(0xfff7f7f7),
-        errorColor: Colors.red,
-      ),
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
+      themeMode: _darkTheme ? ThemeMode.dark : ThemeMode.light,
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  void _changeTheme() {}
+
   @override
   Widget build(BuildContext context) {
-    AppBar _appBar = AppBar();
     final _mediaQuery = MediaQuery.of(context);
-    final _extraHeight = _mediaQuery.padding.top + _appBar.preferredSize.height;
+    final _extraHeight = _mediaQuery.padding.top;
 
     return Scaffold(
-      appBar: _appBar,
+      // appBar: _appBar,
       body: SafeArea(
         child: CalcUI(
           mediaQuery: _mediaQuery,
           extraHeight: _extraHeight,
+          themeToggle: _changeTheme,
         ),
       ),
     );

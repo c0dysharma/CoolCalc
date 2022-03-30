@@ -1,3 +1,4 @@
+import 'package:coolcalc/themes.dart';
 import 'package:flutter/material.dart';
 import './key_design.dart';
 
@@ -8,7 +9,14 @@ class CalcButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(30),
+      padding: const EdgeInsets.all(25),
+      decoration: BoxDecoration(
+        color: Theme.of(context).focusColor,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(25),
+          topRight: Radius.circular(25),
+        ),
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -16,22 +24,22 @@ class CalcButtons extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               KeyDesign(
-                color: Colors.cyan,
+                textColor: MyTheme.topColoumnCyan,
                 onPressed: buttonPress,
                 text: 'AC',
               ),
               KeyDesign(
-                color: Colors.cyan,
+                textColor: MyTheme.topColoumnCyan,
                 onPressed: buttonPress,
                 text: 'C',
               ),
               KeyDesign(
-                color: Colors.cyan,
+                textColor: MyTheme.topColoumnCyan,
                 onPressed: buttonPress,
                 text: '<',
               ),
               KeyDesign(
-                color: Colors.orange,
+                textColor: MyTheme.rightRowOrange,
                 onPressed: buttonPress,
                 text: '/',
               ),
@@ -41,22 +49,22 @@ class CalcButtons extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               KeyDesign(
-                color: Colors.black,
+                textColor: Theme.of(context).primaryColor,
                 onPressed: buttonPress,
                 text: '7',
               ),
               KeyDesign(
-                color: Colors.black,
+                textColor: Theme.of(context).primaryColor,
                 onPressed: buttonPress,
                 text: '8',
               ),
               KeyDesign(
-                color: Colors.black,
+                textColor: Theme.of(context).primaryColor,
                 onPressed: buttonPress,
                 text: '9',
               ),
               KeyDesign(
-                color: Colors.orange,
+                textColor: MyTheme.rightRowOrange,
                 onPressed: buttonPress,
                 text: 'X',
               ),
@@ -66,22 +74,22 @@ class CalcButtons extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               KeyDesign(
-                color: Colors.black,
+                textColor: Theme.of(context).primaryColor,
                 onPressed: buttonPress,
                 text: '4',
               ),
               KeyDesign(
-                color: Colors.black,
+                textColor: Theme.of(context).primaryColor,
                 onPressed: buttonPress,
                 text: '5',
               ),
               KeyDesign(
-                color: Colors.black,
+                textColor: Theme.of(context).primaryColor,
                 onPressed: buttonPress,
                 text: '6',
               ),
               KeyDesign(
-                color: Colors.orange,
+                textColor: MyTheme.rightRowOrange,
                 onPressed: buttonPress,
                 text: '-',
               ),
@@ -91,22 +99,22 @@ class CalcButtons extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               KeyDesign(
-                color: Colors.black,
+                textColor: Theme.of(context).primaryColor,
                 onPressed: buttonPress,
                 text: '1',
               ),
               KeyDesign(
-                color: Colors.black,
+                textColor: Theme.of(context).primaryColor,
                 onPressed: buttonPress,
                 text: '2',
               ),
               KeyDesign(
-                color: Colors.black,
+                textColor: Theme.of(context).primaryColor,
                 onPressed: buttonPress,
                 text: '3',
               ),
               KeyDesign(
-                color: Colors.orange,
+                textColor: MyTheme.rightRowOrange,
                 onPressed: buttonPress,
                 text: '+',
               ),
@@ -116,22 +124,22 @@ class CalcButtons extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               KeyDesign(
-                color: Colors.black,
+                textColor: Theme.of(context).primaryColor,
                 onPressed: buttonPress,
                 text: '00',
               ),
               KeyDesign(
-                color: Colors.black,
+                textColor: Theme.of(context).primaryColor,
                 onPressed: buttonPress,
                 text: '0',
               ),
               KeyDesign(
-                color: Colors.black,
+                textColor: Theme.of(context).primaryColor,
                 onPressed: buttonPress,
                 text: '.',
               ),
               KeyDesign(
-                color: Colors.orange,
+                textColor: MyTheme.rightRowOrange,
                 onPressed: buttonPress,
                 text: '=',
               ),

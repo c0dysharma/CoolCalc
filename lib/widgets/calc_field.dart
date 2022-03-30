@@ -18,8 +18,7 @@ class _CalcFieldsState extends State<CalcFields> {
   @override
   Widget build(BuildContext context) {
     return Container(
-
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.end,
@@ -28,8 +27,10 @@ class _CalcFieldsState extends State<CalcFields> {
             widget.history,
             style: GoogleFonts.rubik(
               fontSize: 15,
+              color: Theme.of(context).primaryColor,
             ),
           ),
+          const SizedBox(height: 5),
           FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
@@ -37,6 +38,7 @@ class _CalcFieldsState extends State<CalcFields> {
               style: GoogleFonts.rubik(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
+                color: Theme.of(context).primaryColor,
               ),
             ),
           )
