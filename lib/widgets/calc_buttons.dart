@@ -1,5 +1,7 @@
 import 'package:coolcalc/themes.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
+
 import './key_design.dart';
 
 class CalcButtons extends StatelessWidget {
@@ -9,7 +11,7 @@ class CalcButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(25),
+      padding: EdgeInsets.all(2.5.h),
       decoration: BoxDecoration(
         color: Theme.of(context).focusColor,
         borderRadius: const BorderRadius.only(
