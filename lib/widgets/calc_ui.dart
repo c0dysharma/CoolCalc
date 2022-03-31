@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
 
 import './calc_buttons.dart';
-import 'calc_field.dart';
+import './calc_field.dart';
+import './calc_theme_toogle.dart';
 
 class CalcUI extends StatefulWidget {
-  final double extraHeight;
-  final MediaQueryData mediaQuery;
-  final Function themeToggle;
-
-  CalcUI({
-    required this.extraHeight,
-    required this.mediaQuery,
-    required this.themeToggle,
-  });
-
   @override
   State<CalcUI> createState() => _CalcUIState();
 }
@@ -109,32 +100,42 @@ class _CalcUIState extends State<CalcUI> {
 
   @override
   Widget build(BuildContext context) {
-    final uiHeight = (widget.mediaQuery.size.height - widget.extraHeight);
-    return Column(
-      children: [
-        SizedBox(height: uiHeight * 0.05),
-        Container(
-          height: uiHeight * 0.05,
-          child: ElevatedButton(
-            onPressed: widget.themeToggle(),
-            child: const Icon(Icons.bolt),
-          ),
+    final mediaQuery = MediaQuery.of(context);
+    final extraHeight = mediaQuery.padding.top;
+    final uiHeight = (mediaQuery.size.height - extraHeight);
+    final uiWidth = mediaQuery.size.width;
+
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            SizedBox(height: uiHeight * 0.03),
+            Container(
+              width: uiWidth * 0.4,
+              height: uiHeight * 0.07,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
+                color: Theme.of(context).focusColor,
+              ),
+              child: CalcThemeToggle(uiWidth: uiWidth),
+            ),
+            SizedBox(
+              height: uiHeight * 0.3,
+              width: mediaQuery.size.width,
+              child: CalcFields(
+                history: history,
+                textToDisplay: textToDispaly,
+              ),
+            ),
+            SizedBox(
+              height: uiHeight * 0.6,
+              child: CalcButtons(
+                buttonPress: _buttonPress,
+              ),
+            ),
+          ],
         ),
-        SizedBox(
-          height: uiHeight * 0.3,
-          width: widget.mediaQuery.size.width,
-          child: CalcFields(
-            history: history,
-            textToDisplay: textToDispaly,
-          ),
-        ),
-        SizedBox(
-          height: uiHeight * 0.6,
-          child: CalcButtons(
-            buttonPress: _buttonPress,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
