@@ -1,4 +1,4 @@
-import 'package:coolcalc/themes.dart';
+import 'package:coolcalc/themes/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import './calc_buttons.dart';
-import './calc_field.dart';
-import './calc_theme_toogle.dart';
+import './widgets/calc_buttons.dart';
+import './widgets/calc_field.dart';
+import './widgets/calc_theme_toogle.dart';
 
 class CalcUI extends StatefulWidget {
   @override
