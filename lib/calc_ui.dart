@@ -90,6 +90,8 @@ class _CalcUIState extends State<CalcUI> {
             ' ' +
             secondNum.toString();
       }
+      firstNum = 0;
+      secondNum = 0;
     } else if (val == '.') {
       res = textToDispaly + '.';
     } else {
@@ -102,7 +104,10 @@ class _CalcUIState extends State<CalcUI> {
     }
 
     setState(() {
-      if (res.endsWith('.0')) {
+      if (res.isNotEmpty) {
+        res = double.parse(res).toStringAsFixed(3);
+      }
+      if (res.endsWith('.000')) {
         textToDispaly = res.split('.')[0];
       } else {
         textToDispaly = res;
