@@ -51,32 +51,44 @@ class _CalcUIState extends State<CalcUI> {
       res = '';
 
       if (history.isEmpty) {
-        history = firstNum.toString() + history + val;
+        history = firstNum.toString() + history + ' ' + val;
       } else {
-        history = firstNum.toString() + val;
+        history = firstNum.toString() + ' ' + val;
       }
       operation = val;
     } else if (val == '=') {
       secondNum = double.parse(textToDispaly);
       if (operation == '+') {
         res = (firstNum + secondNum).toString();
-        history =
-            firstNum.toString() + operation.toString() + secondNum.toString();
+        history = firstNum.toString() +
+            ' ' +
+            operation.toString() +
+            ' ' +
+            secondNum.toString();
       }
       if (operation == '-') {
         res = (firstNum - secondNum).toString();
-        history =
-            firstNum.toString() + operation.toString() + secondNum.toString();
+        history = firstNum.toString() +
+            ' ' +
+            operation.toString() +
+            ' ' +
+            secondNum.toString();
       }
       if (operation == 'X') {
         res = (firstNum * secondNum).toString();
-        history =
-            firstNum.toString() + operation.toString() + secondNum.toString();
+        history = firstNum.toString() +
+            ' ' +
+            operation.toString() +
+            ' ' +
+            secondNum.toString();
       }
       if (operation == '/') {
         res = (firstNum / secondNum).toString();
-        history =
-            firstNum.toString() + operation.toString() + secondNum.toString();
+        history = firstNum.toString() +
+            ' ' +
+            operation.toString() +
+            ' ' +
+            secondNum.toString();
       }
     } else if (val == '.') {
       res = textToDispaly + '.';
