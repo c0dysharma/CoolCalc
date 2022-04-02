@@ -158,7 +158,7 @@ class _CalcUIState extends State<CalcUI> {
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                   color: Theme.of(context).focusColor,
                 ),
-                child: const CalcThemeToggle(),
+                child: CalcThemeToggle(),
               ),
               SizedBox(
                 height: uiHeight * 0.3,
