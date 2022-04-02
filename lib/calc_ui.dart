@@ -33,7 +33,11 @@ class _CalcUIState extends State<CalcUI> {
         res = '-' + res;
       }
     } else if (val == '<') {
-      res = textToDispaly.substring(0, textToDispaly.length - 1);
+      if (textToDispaly.startsWith('-') && textToDispaly.length == 2) {
+        res = '';
+      } else {
+        res = textToDispaly.substring(0, textToDispaly.length - 1);
+      }
     } else if (val == '/' || val == 'X' || val == '-' || val == '+') {
       if (firstNum != 0) {
         if (val == '+') {
