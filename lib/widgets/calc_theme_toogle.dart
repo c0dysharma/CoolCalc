@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CalcThemeToggle extends StatelessWidget {
-  const CalcThemeToggle({Key? key, 
-    required this.uiWidth,
+  const CalcThemeToggle({
+    Key? key,
   }) : super(key: key);
-
-  final double uiWidth;
   final Icon lightOn = const Icon(Icons.wb_sunny);
   final Icon lightOff = const Icon(Icons.wb_sunny_outlined);
 
@@ -28,7 +27,7 @@ class CalcThemeToggle extends StatelessWidget {
           hoverColor: Colors.transparent,
         ),
         SizedBox(
-          width: uiWidth * 0.05,
+          width: 5.w,
         ),
         IconButton(
           onPressed: () {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sizer/sizer.dart';
 
 class NoLandscapde extends StatelessWidget {
   const NoLandscapde({Key? key}) : super(key: key);
@@ -10,11 +9,11 @@ class NoLandscapde extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final darkModeColors = SystemUiOverlayStyle.light.copyWith(
-      systemNavigationBarColor: Theme.of(context).focusColor,
+      systemNavigationBarColor: Theme.of(context).canvasColor,
       statusBarColor: Theme.of(context).canvasColor,
     );
     final lightModeColors = SystemUiOverlayStyle.dark.copyWith(
-      systemNavigationBarColor: Theme.of(context).focusColor,
+      systemNavigationBarColor: Theme.of(context).canvasColor,
       statusBarColor: Theme.of(context).canvasColor,
     );
     return Scaffold(
@@ -28,7 +27,7 @@ class NoLandscapde extends StatelessWidget {
             child: Text(
               "Rotate your device to calculate bruh..",
               style: GoogleFonts.montserrat(
-                fontSize: 15.sp,
+                fontSize: 15 * MediaQuery.of(context).textScaleFactor,
                 color: Theme.of(context).primaryColor,
               ),
             ),

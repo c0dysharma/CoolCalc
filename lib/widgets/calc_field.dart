@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CalcFields extends StatefulWidget {
-  const CalcFields({Key? key, 
+  const CalcFields({
+    Key? key,
     required this.history,
     required this.textToDisplay,
   }) : super(key: key);
@@ -18,7 +20,7 @@ class _CalcFieldsState extends State<CalcFields> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.end,
@@ -26,17 +28,17 @@ class _CalcFieldsState extends State<CalcFields> {
           Text(
             widget.history,
             style: GoogleFonts.rubik(
-              fontSize: 15,
+              fontSize: 15.sp,
               color: Theme.of(context).primaryColor,
             ),
           ),
-          const SizedBox(height: 5),
+          SizedBox(height: 4.h),
           FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
               widget.textToDisplay,
               style: GoogleFonts.rubik(
-                fontSize: 40,
+                fontSize: 40.sp,
                 fontWeight: FontWeight.bold,
                 color: Theme.of(context).primaryColor,
               ),

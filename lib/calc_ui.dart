@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import './widgets/calc_buttons.dart';
 import './widgets/calc_field.dart';
@@ -157,7 +158,7 @@ class _CalcUIState extends State<CalcUI> {
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                   color: Theme.of(context).focusColor,
                 ),
-                child: CalcThemeToggle(uiWidth: uiWidth),
+                child: const CalcThemeToggle(),
               ),
               SizedBox(
                 height: uiHeight * 0.3,
