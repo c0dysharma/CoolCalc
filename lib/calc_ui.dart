@@ -5,6 +5,8 @@ import './widgets/calc_field.dart';
 import './widgets/calc_theme_toogle.dart';
 
 class CalcUI extends StatefulWidget {
+  const CalcUI({Key? key}) : super(key: key);
+
   @override
   State<CalcUI> createState() => _CalcUIState();
 }

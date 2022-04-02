@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CalcFields extends StatefulWidget {
-  CalcFields({
+  const CalcFields({Key? key, 
     required this.history,
     required this.textToDisplay,
-  });
+  }) : super(key: key);
 
   final String history;
   final String textToDisplay;

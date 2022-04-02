@@ -7,8 +7,8 @@ class KeyDesign extends StatelessWidget {
   final Color textColor;
   final Function onPressed;
 
-  KeyDesign(
-      {required this.text, required this.textColor, required this.onPressed});
+  const KeyDesign(
+      {Key? key, required this.text, required this.textColor, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

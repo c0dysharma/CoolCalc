@@ -5,8 +5,8 @@ import 'package:sizer/sizer.dart';
 import './key_design.dart';
 
 class CalcButtons extends StatelessWidget {
-  Function buttonPress;
-  CalcButtons({required this.buttonPress});
+  final Function buttonPress;
+  const CalcButtons({Key? key, required this.buttonPress}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CalcThemeToggle extends StatelessWidget {
-  CalcThemeToggle({
+  const CalcThemeToggle({Key? key, 
     required this.uiWidth,
-  });
+  }) : super(key: key);
 
   final double uiWidth;
-  Icon lightOn = const Icon(Icons.wb_sunny);
-  Icon lightOff = const Icon(Icons.wb_sunny_outlined);
+  final Icon lightOn = const Icon(Icons.wb_sunny);
+  final Icon lightOff = const Icon(Icons.wb_sunny_outlined);
 
-  Icon darkOn = const Icon(Icons.nights_stay);
-  Icon darkOff = const Icon(Icons.nights_stay_outlined);
+  final Icon darkOn = const Icon(Icons.nights_stay);
+  final Icon darkOff = const Icon(Icons.nights_stay_outlined);
 
   @override
   Widget build(BuildContext context) {

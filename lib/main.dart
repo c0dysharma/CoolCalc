@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'CoolCalc',
         home: orientation == Orientation.portrait
-            ? CalcUI()
+            ? const CalcUI()
             : const NoLandscapde(),
         theme: MyTheme.lightTheme(context),
         darkTheme: MyTheme.darkTheme(context),
