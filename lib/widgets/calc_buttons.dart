@@ -33,7 +33,7 @@ class CalcButtons extends StatelessWidget {
               KeyDesign(
                 textColor: MyTheme.topColoumnCyan,
                 onPressed: buttonPress,
-                text: 'C',
+                text: '+/-',
               ),
               KeyDesign(
                 textColor: MyTheme.topColoumnCyan,

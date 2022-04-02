@@ -26,11 +26,12 @@ class _CalcUIState extends State<CalcUI> {
       history = '';
       res = '';
       operation = '';
-    } else if (val == 'C') {
-      firstNum = 0;
-      secondNum = 0;
-      res = '';
-      operation = '';
+    } else if (val == '+/-') {
+      if (res.startsWith('-')) {
+        res = res.substring(1);
+      } else {
+        res = '-' + res;
+      }
     } else if (val == '<') {
       res = textToDispaly.substring(0, textToDispaly.length - 1);
     } else if (val == '/' || val == 'X' || val == '-' || val == '+') {
