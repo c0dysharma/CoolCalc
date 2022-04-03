@@ -4,11 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CalcThemeToggle extends StatelessWidget {
   // Vars to change icons based on current theme
-  final Icon lightOn = const Icon(Icons.wb_sunny);
-  final Icon lightOff = const Icon(Icons.wb_sunny_outlined);
+  final Icon _lightOn = const Icon(Icons.wb_sunny);
+  final Icon _lightOff = const Icon(Icons.wb_sunny_outlined);
 
-  final Icon darkOn = const Icon(Icons.nights_stay);
-  final Icon darkOff = const Icon(Icons.nights_stay_outlined);
+  final Icon _darkOn = const Icon(Icons.nights_stay);
+  final Icon _darkOff = const Icon(Icons.nights_stay_outlined);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class CalcThemeToggle extends StatelessWidget {
             // Used GetX to change theme coz dunno how to do the "Default" way
             Get.changeThemeMode(ThemeMode.light);
           },
-          icon: Get.isDarkMode ? lightOff : lightOn,
+          icon: Get.isDarkMode ? _lightOff : _lightOn,
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           hoverColor: Colors.transparent,
@@ -32,7 +32,7 @@ class CalcThemeToggle extends StatelessWidget {
           onPressed: () {
             Get.changeThemeMode(ThemeMode.dark);
           },
-          icon: Get.isDarkMode ? darkOn : darkOff,
+          icon: Get.isDarkMode ? _darkOn : _darkOff,
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           hoverColor: Colors.transparent,

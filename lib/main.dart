@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
           darkTheme: MyTheme.darkTheme(context),
           themeMode: ThemeMode.system,
         ),
-        designSize: const Size(360, 640), // A reference to create Responsive-ness
+        designSize:
+            const Size(360, 640), // A reference to create Responsive-ness
       );
     });
   }

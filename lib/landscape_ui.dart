@@ -10,18 +10,18 @@ class NoLandscapde extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Created these for easy statusbar and navbar color change
-    final darkModeColors = SystemUiOverlayStyle.light.copyWith(
+    final _darkModeColors = SystemUiOverlayStyle.light.copyWith(
       systemNavigationBarColor: Theme.of(context).canvasColor,
       statusBarColor: Theme.of(context).canvasColor,
     );
-    final lightModeColors = SystemUiOverlayStyle.dark.copyWith(
+    final _lightModeColors = SystemUiOverlayStyle.dark.copyWith(
       systemNavigationBarColor: Theme.of(context).canvasColor,
       statusBarColor: Theme.of(context).canvasColor,
     );
     return Scaffold(
       // Used to change nav and statusbar color
       body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: Get.isDarkMode ? darkModeColors : lightModeColors,
+        value: Get.isDarkMode ? _darkModeColors : _lightModeColors,
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,

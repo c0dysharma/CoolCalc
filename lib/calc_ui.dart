@@ -15,117 +15,118 @@ class CalcUI extends StatefulWidget {
 
 class _CalcUIState extends State<CalcUI> {
   // Vars to support Calculator functionaliy
-  double firstNum = 0;
-  double secondNum = 0;
+  double _firstNum = 0;
+  double _secondNum = 0;
+  String _res = '';
+  String _operation = '';
+  bool _removeDecimal = false;
+  // No private
   String history = '';
-  String res = '';
   String textToDispaly = '0';
-  String operation = '';
-  bool removeDecimal = false;
 
   // Calculator Brain
   void _buttonPress(String val) {
     if (val == 'AC') {
-      firstNum = 0;
-      secondNum = 0;
+      _firstNum = 0;
+      _secondNum = 0;
       history = '';
-      res = '';
-      operation = '';
+      _res = '';
+      _operation = '';
     } else if (val == '+/-') {
-      if (res.startsWith('-')) {
-        res = res.substring(1);
+      if (_res.startsWith('-')) {
+        _res = _res.substring(1);
       } else {
-        res = '-' + res;
+        _res = '-' + _res;
       }
     } else if (val == '<') {
       if (textToDispaly.startsWith('-') && textToDispaly.length == 2) {
-        res = '';
+        _res = '';
       } else {
-        res = textToDispaly.substring(0, textToDispaly.length - 1);
+        _res = textToDispaly.substring(0, textToDispaly.length - 1);
       }
-      removeDecimal = false;
+      _removeDecimal = false;
     } else if (val == '/' || val == 'X' || val == '-' || val == '+') {
-      if (firstNum != 0) {
+      if (_firstNum != 0) {
         if (val == '+') {
-          firstNum = firstNum + double.parse(textToDispaly);
+          _firstNum = _firstNum + double.parse(textToDispaly);
         }
         if (val == '-') {
-          firstNum = firstNum - double.parse(textToDispaly);
+          _firstNum = _firstNum - double.parse(textToDispaly);
         }
         if (val == 'X') {
-          firstNum = firstNum * double.parse(textToDispaly);
+          _firstNum = _firstNum * double.parse(textToDispaly);
         }
         if (val == '/') {
-          firstNum = firstNum / double.parse(textToDispaly);
+          _firstNum = _firstNum / double.parse(textToDispaly);
         }
       } else {
-        firstNum = (double.parse(textToDispaly));
+        _firstNum = (double.parse(textToDispaly));
       }
-      res = '';
+      _res = '';
 
       if (history.isEmpty) {
-        history = firstNum.toString() + history + ' ' + val;
+        history = _firstNum.toString() + history + ' ' + val;
       } else {
-        history = firstNum.toString() + ' ' + val;
+        history = _firstNum.toString() + ' ' + val;
       }
-      operation = val;
+      _operation = val;
     } else if (val == '=') {
-      secondNum = double.parse(textToDispaly);
-      if (operation == '+') {
-        res = (firstNum + secondNum).toString();
-        history = firstNum.toString() +
+      _secondNum = double.parse(textToDispaly);
+      if (_operation == '+') {
+        _res = (_firstNum + _secondNum).toString();
+        history = _firstNum.toString() +
             ' ' +
-            operation.toString() +
+            _operation.toString() +
             ' ' +
-            secondNum.toString();
+            _secondNum.toString();
       }
-      if (operation == '-') {
-        res = (firstNum - secondNum).toString();
-        history = firstNum.toString() +
+      if (_operation == '-') {
+        _res = (_firstNum - _secondNum).toString();
+        history = _firstNum.toString() +
             ' ' +
-            operation.toString() +
+            _operation.toString() +
             ' ' +
-            secondNum.toString();
+            _secondNum.toString();
       }
-      if (operation == 'X') {
-        res = (firstNum * secondNum).toString();
-        history = firstNum.toString() +
+      if (_operation == 'X') {
+        _res = (_firstNum * _secondNum).toString();
+        history = _firstNum.toString() +
             ' ' +
-            operation.toString() +
+            _operation.toString() +
             ' ' +
-            secondNum.toString();
+            _secondNum.toString();
       }
-      if (operation == '/') {
-        res = (firstNum / secondNum).toString();
-        history = firstNum.toString() +
+      if (_operation == '/') {
+        _res = (_firstNum / _secondNum).toString();
+        history = _firstNum.toString() +
             ' ' +
-            operation.toString() +
+            _operation.toString() +
             ' ' +
-            secondNum.toString();
+            _secondNum.toString();
       }
-      firstNum = 0;
-      secondNum = 0;
-      removeDecimal = true;
+      _firstNum = 0;
+      _secondNum = 0;
+      _removeDecimal = true;
     } else if (val == '.') {
-      res = textToDispaly + '.';
-      removeDecimal = false;
+      _res = textToDispaly + '.';
+      _removeDecimal = false;
     } else {
       if (textToDispaly.isNotEmpty && textToDispaly.contains('.')) {
-        res = double.parse(textToDispaly + val).toString();
+        _res = double.parse(textToDispaly + val).toString();
       } else {
-        res = int.parse(textToDispaly + val).toString();
-        removeDecimal = true;
+        _res = int.parse(textToDispaly + val).toString();
+        _removeDecimal = true;
       }
     }
 
     setState(() {
-      if (res.isNotEmpty && removeDecimal) {
-        res = double.parse(res).toStringAsFixed(3);
+      if (_res.isNotEmpty && _removeDecimal) {
+        _res = double.parse(_res).toStringAsFixed(3);
       }
-      if (res.endsWith('.000') && removeDecimal) {
-        textToDispaly = res.split('.')[0];
+      if (_res.endsWith('.000') && _removeDecimal) {
+        textToDispaly = _res.split('.')[0];
       } else {
-        textToDispaly = res;
+        textToDispaly = _res;
       }
     });
   }
@@ -133,16 +134,16 @@ class _CalcUIState extends State<CalcUI> {
   @override
   Widget build(BuildContext context) {
     // Vars to divide UI in percentage
-    final mediaQuery = MediaQuery.of(context);
-    final extraHeight = mediaQuery.padding.top;
-    final uiHeight = (mediaQuery.size.height - extraHeight);
-    final uiWidth = mediaQuery.size.width;
+    final _mediaQuery = MediaQuery.of(context);
+    final _extraHeight = _mediaQuery.padding.top;
+    final _uiHeight = (_mediaQuery.size.height - _extraHeight);
+    final _uiWidth = _mediaQuery.size.width;
     // Created these for easy statusbar and navbar color change
-    final darkModeColors = SystemUiOverlayStyle.light.copyWith(
+    final _darkModeColors = SystemUiOverlayStyle.light.copyWith(
       systemNavigationBarColor: Theme.of(context).focusColor,
       statusBarColor: Theme.of(context).canvasColor,
     );
-    final lightModeColors = SystemUiOverlayStyle.dark.copyWith(
+    final _lightModeColors = SystemUiOverlayStyle.dark.copyWith(
       systemNavigationBarColor: Theme.of(context).focusColor,
       statusBarColor: Theme.of(context).canvasColor,
     );
@@ -150,14 +151,14 @@ class _CalcUIState extends State<CalcUI> {
     return Scaffold(
       // Used to change nav and statusbar color
       body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: Get.isDarkMode ? darkModeColors : lightModeColors,
+        value: Get.isDarkMode ? _darkModeColors : _lightModeColors,
         child: SafeArea(
           child: Column(
             children: [
-              SizedBox(height: uiHeight * 0.03), // 3% height space above
+              SizedBox(height: _uiHeight * 0.03), // 3% height space above
               Container(
-                width: uiWidth * 0.4,
-                height: uiHeight *
+                width: _uiWidth * 0.4,
+                height: _uiHeight *
                     0.07, // takes 7% height for Theme Toggle switches
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -166,16 +167,16 @@ class _CalcUIState extends State<CalcUI> {
                 child: CalcThemeToggle(),
               ),
               SizedBox(
-                height: uiHeight *
+                height: _uiHeight *
                     0.3, // takes 30% height of the fields of history and result
-                width: mediaQuery.size.width,
+                width: _mediaQuery.size.width,
                 child: CalcFields(
                   history: history,
                   textToDisplay: textToDispaly,
                 ),
               ),
               SizedBox(
-                height: uiHeight * 0.6, // rest 60% taken by actual buttons
+                height: _uiHeight * 0.6, // rest 60% taken by actual buttons
                 child: CalcButtons(
                   buttonPress: _buttonPress,
                 ),
