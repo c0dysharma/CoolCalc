@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyTheme {
+  // Light Theme
   static lightTheme(BuildContext context) => ThemeData(
         primaryColor: Colors.black,
         focusColor: const Color(0xfff9f9f9),
@@ -9,6 +10,7 @@ class MyTheme {
         canvasColor: Colors.white,
         brightness: Brightness.light,
       );
+  // Dark Theme
   static darkTheme(BuildContext context) => ThemeData(
         primaryColor: Colors.white,
         focusColor: const Color(0xff292d36),
@@ -18,6 +20,7 @@ class MyTheme {
         brightness: Brightness.dark,
       );
 
+  // Colors vars for keys
   static Color rightRowOrange = const Color(0xfff47a7a);
   static Color topColoumnCyan = const Color(0xff26f5cf);
 }

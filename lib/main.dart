@@ -16,18 +16,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OrientationBuilder(builder: (context, orientation) {
+      // For responsiveness
       return ScreenUtilInit(
+        // For Get
         builder: () => GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'CoolCalc',
           home: orientation == Orientation.portrait
-              ? const CalcUI()
-              : const NoLandscapde(),
+              ? const CalcUI() // Acutal Calculator UI
+              : const NoLandscapde(), // Just a place holder to mimic Landspace support
           theme: MyTheme.lightTheme(context),
           darkTheme: MyTheme.darkTheme(context),
           themeMode: ThemeMode.system,
         ),
-        designSize: const Size(360, 640),
+        designSize: const Size(360, 640), // A reference to create Responsive-ness
       );
     });
   }

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CalcThemeToggle extends StatelessWidget {
+  // Vars to change icons based on current theme
   final Icon lightOn = const Icon(Icons.wb_sunny);
   final Icon lightOff = const Icon(Icons.wb_sunny_outlined);
 
@@ -16,6 +17,7 @@ class CalcThemeToggle extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {
+            // Used GetX to change theme coz dunno how to do the "Default" way
             Get.changeThemeMode(ThemeMode.light);
           },
           icon: Get.isDarkMode ? lightOff : lightOn,
@@ -24,7 +26,7 @@ class CalcThemeToggle extends StatelessWidget {
           hoverColor: Colors.transparent,
         ),
         SizedBox(
-          width: 10.w,
+          width: 10.w, // .h and .w are from scrrenUtil to make responsive
         ),
         IconButton(
           onPressed: () {

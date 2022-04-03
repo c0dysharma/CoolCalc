@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import './widgets/calc_buttons.dart';
 import './widgets/calc_field.dart';
@@ -15,6 +14,7 @@ class CalcUI extends StatefulWidget {
 }
 
 class _CalcUIState extends State<CalcUI> {
+  // Vars to support Calculator functionaliy
   double firstNum = 0;
   double secondNum = 0;
   String history = '';
@@ -23,6 +23,7 @@ class _CalcUIState extends State<CalcUI> {
   String operation = '';
   bool removeDecimal = false;
 
+  // Calculator Brain
   void _buttonPress(String val) {
     if (val == 'AC') {
       firstNum = 0;
@@ -131,10 +132,12 @@ class _CalcUIState extends State<CalcUI> {
 
   @override
   Widget build(BuildContext context) {
+    // Vars to divide UI in percentage
     final mediaQuery = MediaQuery.of(context);
     final extraHeight = mediaQuery.padding.top;
     final uiHeight = (mediaQuery.size.height - extraHeight);
     final uiWidth = mediaQuery.size.width;
+    // Created these for easy statusbar and navbar color change
     final darkModeColors = SystemUiOverlayStyle.light.copyWith(
       systemNavigationBarColor: Theme.of(context).focusColor,
       statusBarColor: Theme.of(context).canvasColor,
@@ -145,15 +148,17 @@ class _CalcUIState extends State<CalcUI> {
     );
 
     return Scaffold(
+      // Used to change nav and statusbar color
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: Get.isDarkMode ? darkModeColors : lightModeColors,
         child: SafeArea(
           child: Column(
             children: [
-              SizedBox(height: uiHeight * 0.03),
+              SizedBox(height: uiHeight * 0.03), // 3% height space above
               Container(
                 width: uiWidth * 0.4,
-                height: uiHeight * 0.07,
+                height: uiHeight *
+                    0.07, // takes 7% height for Theme Toggle switches
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                   color: Theme.of(context).focusColor,
@@ -161,7 +166,8 @@ class _CalcUIState extends State<CalcUI> {
                 child: CalcThemeToggle(),
               ),
               SizedBox(
-                height: uiHeight * 0.3,
+                height: uiHeight *
+                    0.3, // takes 30% height of the fields of history and result
                 width: mediaQuery.size.width,
                 child: CalcFields(
                   history: history,
@@ -169,7 +175,7 @@ class _CalcUIState extends State<CalcUI> {
                 ),
               ),
               SizedBox(
-                height: uiHeight * 0.6,
+                height: uiHeight * 0.6, // rest 60% taken by actual buttons
                 child: CalcButtons(
                   buttonPress: _buttonPress,
                 ),

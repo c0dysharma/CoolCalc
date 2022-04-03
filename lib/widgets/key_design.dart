@@ -22,14 +22,15 @@ class KeyDesign extends StatelessWidget {
         text,
         style: GoogleFonts.montserrat(
           color: textColor,
-          fontSize: 25.sp,
+          fontSize: 25.sp, // .sp is from scrrenUtil to make responsive
           fontWeight: FontWeight.w500,
         ),
       ),
       style: TextButton.styleFrom(
         // padding: EdgeInsets.all(15.h),
         backgroundColor: Theme.of(context).highlightColor,
-        fixedSize: Size(30.w, 50.h),
+        fixedSize: Size(
+            30.w, 50.h), // .h and .w are from scrrenUtil to make responsive
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),

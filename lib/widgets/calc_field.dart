@@ -20,7 +20,8 @@ class _CalcFieldsState extends State<CalcFields> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20.h),
+      padding: EdgeInsets.all(
+          20.h), // .h and .w are from scrrenUtil to make responsive
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.end,
@@ -28,7 +29,7 @@ class _CalcFieldsState extends State<CalcFields> {
           Text(
             widget.history,
             style: GoogleFonts.rubik(
-              fontSize: 15.sp,
+              fontSize: 15.sp, // .sp  is from scrrenUtil to make responsive
               color: Theme.of(context).primaryColor,
             ),
           ),
