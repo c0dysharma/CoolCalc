@@ -1,16 +1,30 @@
-# coolcalc
+# **CoolCalc App**
 
-A new Flutter project.
+Modern Responsive UI📱 of good old calculator 🔢 with Light 💡 and Dark 🖤 Theme support! 
+<hr></hr>
 
-## Getting Started
+## **Screnshots**
 
-This project is a starting point for a Flutter application.
+Some of screenshots showing the UI built using flutter
 
-A few resources to get you started if this is your first Flutter project:
+### **Dark Theme** 🖤
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<img src="./assets/screenshots/homeDark.PNG" title="Home Page" width="50%" height="50%">
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### **Light Theme** 💡
+
+<img src="./assets/screenshots/homeLight.PNG" title="Home Page" width="50%" height="50%">
+
+## **Features**
+
+- Support decimal point numbers ⚫
+- Responsive works on any device size ↗
+- Works on both ios and android 📱
+- Rounded number upto 3 decimal points 🔢
+- Dark and Light theme toggle 🌗
+- Handled Landscape mode like a pro 😎
+
+## **Wanna Try?**
+
+Head on to [Releases Page.](https://github.com/c0dysharma/CoolCalc/releases)
+Choose based on your device [ABI](https://github.com/c0dysharma/CoolCalc/releases/tag/v.1.0.0-abi) or get [AIO file](https://github.com/c0dysharma/CoolCalc/releases/download/v.1.0.0/app-release.apk). ☮
